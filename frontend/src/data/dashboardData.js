@@ -1,0 +1,32 @@
+export const navigationItems = [
+  { id: "dashboard", label: "Pulpit", isActive: true },
+  { id: "verification", label: "Weryfikacja", isActive: false },
+  { id: "results", label: "Wyniki", isActive: false },
+];
+
+export const elections = [
+  {
+    id: "krajowe-2137",
+    level: "Krajowe",
+    dateRange: "12.03 - 15.04.2025",
+    title: "Wybory Krajowe 2025",
+    description: "Wybory do Sejmu RP, które odbędą się w kwietniu 2025 roku. ",
+    status: "Aktywne",
+  },
+  {
+    id: "lokalne-glosowanie-420",
+    level: "Lokalne",
+    dateRange: "14.03 - 15.04.2025",
+    title: "Referendum Spółdzielcze Częstochowa",
+    description: "",
+    status: "Aktywne",
+  },
+];
+
+export const systemHealth = {
+  nodes: [
+    { id: "alpha", name: "Wezel 1", state: "OK" },
+    { id: "beta", name: "Wezel 2", state: "OK" },
+    { id: "gamma", name: "Wezel 3", state: "ERROR" },
+  ],
+};

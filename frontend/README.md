@@ -31,8 +31,21 @@ frontend/
     favicon.svg
   src/
     App.jsx
+    data/
+      dashboardData.js
     index.css
     main.jsx
+    components/
+      dashboard/
+        DashboardHeader.jsx
+        ElectionCard.jsx
+        HealthPanel.jsx
+      icons/
+        SystemIcons.jsx
+      layout/
+        Sidebar.jsx
+    pages/
+      DashboardPage.jsx
   index.html
   tailwind.config.js
   postcss.config.js
