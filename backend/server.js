@@ -84,6 +84,10 @@ const createServer = (ID, port) =>{
     //TODO: Dodac metode POST np /insertData, przyjmująca parametry {poll_id, user_id, value}
 
 
+    app.get('/health', (req, res) => {
+        res.status(200).send("Server healthy");
+    })
+
     return app;
 }
 

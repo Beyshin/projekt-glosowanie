@@ -1,6 +1,41 @@
 import { SupportIcon } from "../icons/SystemIcons";
+import {useEffect, useRef, useState} from "react";
 
 export default function HealthPanel({ systemHealth }) {
+
+  const ref = useRef(null);
+  const [nodes, setNodes] = useState(systemHealth.nodes);
+
+  const checkHealth = () => {
+
+    for(let i = 0; i < 3; i++) {
+      const request = fetch(`http://localhost:800${i}/health`, {
+        method: "GET",
+      }).then(res => {
+        if (res.status === 200) {
+          console.log(`Server ${i+1} działa, super`);
+          systemHealth.nodes[i].state = "OK"
+        }else{
+          console.log(`Server ${i+1} nie działa, niedobrze`);
+          systemHealth.nodes[i].state = "ERROR"
+        }
+        setNodes([...systemHealth.nodes]);
+      })
+    }
+  }
+
+  useEffect(() => {
+    ref.current = setInterval(checkHealth,60*1000);
+
+    return () => {
+      if(ref.current) {
+        clearInterval(ref.current);
+      }
+    }
+
+  }, [])
+
+
   return (
     <aside className="space-y-4 animate-fade-in-up animation-delay-200">
       <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
@@ -13,7 +48,7 @@ export default function HealthPanel({ systemHealth }) {
             Aktywne Wezly Obliczeniowe
           </p>
           <ul className="space-y-2">
-            {systemHealth.nodes.map((node) => (
+            {nodes.map((node) => (
               <li
                 key={node.id}
                 className="flex items-center justify-between text-sm font-medium text-slate-700"

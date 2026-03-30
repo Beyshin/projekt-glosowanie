@@ -25,8 +25,8 @@ export const elections = [
 
 export const systemHealth = {
   nodes: [
-    { id: "alpha", name: "Wezel 1", state: "OK" },
-    { id: "beta", name: "Wezel 2", state: "OK" },
+    { id: "alpha", name: "Wezel 1", state: "ERROR" },
+    { id: "beta", name: "Wezel 2", state: "ERROR" },
     { id: "gamma", name: "Wezel 3", state: "ERROR" },
   ],
 };
