@@ -37,6 +37,7 @@ export default function HealthPanel({ systemHealth }) {
   }
 
   useEffect(() => {
+    checkHealth();
     ref.current = setInterval(checkHealth,5 * 1000 * 60);
 
     return () => {
