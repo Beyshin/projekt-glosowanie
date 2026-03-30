@@ -1,4 +1,5 @@
 import { LockIcon } from "../icons/SystemIcons";
+import {useNavigate} from 'react-router-dom'
 
 function StatusBadge({ status }) {
   return (
@@ -12,6 +13,8 @@ function StatusBadge({ status }) {
 }
 
 export default function ElectionCard({ election, isPrimary = false }) {
+    const navigate = useNavigate();
+
   return (
     <article className="election-card animate-fade-in-up rounded-xl border bg-white p-5 shadow-card sm:p-6 border-l-4 border-l-brand-700">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -44,6 +47,7 @@ export default function ElectionCard({ election, isPrimary = false }) {
         <button
           type="button"
           className="inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold uppercase tracking-wide transition bg-brand-700 text-white hover:bg-brand-800"
+          onClick={() => navigate("/election", {state: election.title})}
         >
           Przejdź do karty głosowania
           <span>&#8594;</span>

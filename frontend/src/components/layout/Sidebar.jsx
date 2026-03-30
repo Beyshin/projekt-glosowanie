@@ -4,6 +4,7 @@ import {
   ShieldIcon,
   VerifyIcon,
 } from "../icons/SystemIcons";
+import {useNavigate} from "react-router-dom";
 
 const navIconMap = {
   dashboard: HomeIcon,
@@ -13,6 +14,8 @@ const navIconMap = {
 };
 
 export default function Sidebar({ items }) {
+    const navigate = useNavigate();
+
   return (
     <aside className="panel-border relative flex min-h-screen flex-col overflow-hidden rounded-r-2xl bg-white/90 px-5 py-7 backdrop-blur">
       <div
@@ -47,6 +50,12 @@ export default function Sidebar({ items }) {
                   ? "border-brand-200 bg-brand-50 text-brand-800"
                   : "border-transparent text-slate-500 hover:border-slate-200 hover:bg-slate-100/70 hover:text-slate-700"
               }`}
+              onClick={() => {
+                  if(item.path) {
+                      item.isActive = true;
+                      navigate(item.path);
+                  }
+              }}
             >
               <Icon className="h-5 w-5" />
               <span>{item.label}</span>

@@ -1,5 +1,5 @@
 export const navigationItems = [
-  { id: "dashboard", label: "Pulpit", isActive: true },
+  { id: "dashboard", label: "Pulpit", isActive: true, path: "/" },
   { id: "verification", label: "Weryfikacja", isActive: false },
   { id: "results", label: "Wyniki", isActive: false },
 ];
