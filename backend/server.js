@@ -8,7 +8,7 @@ const createServer = (ID, port) =>{
 
     const db = new Database(ID);
 
-    app.listen(port, '0.0.0.0',() => {
+    app.listen(port, () => {
         console.log(`Server nr ${ID} is running on port ${port}`);
     })
 
